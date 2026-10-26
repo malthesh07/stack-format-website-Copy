@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stack Format builds modern websites for local businesses.">
+<title>Stack Format | Web Design & Development</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, Arial, sans-serif;
+    background: #07090d;
+    color: #fff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(7, 9, 13, 0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #20242d;
+}
+
+.nav {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: #258cff;
+}
+
+.navlinks {
+    display: flex;
+    gap: 28px;
+    color: #b8beca;
+    font-size: 14px;
+}
+
+.navlinks a:hover {
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    padding: 100px 0 80px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    border: 1px solid #294a91;
+    border-radius: 999px;
+    padding: 7px 13px;
+    color: #cbd6ee;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: clamp(45px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+}
+
+.blue {
+    background: linear-gradient(90deg, #21a9ff, #7755ff);
+    color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    color: #aeb5c1;
+    font-size: 18px;
+    max-width: 590px;
+    margin: 22px 0;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 14px 21px;
+    border-radius: 11px;
+    border: 1px solid #333a48;
+    font-weight: 800;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    background: linear-gradient(90deg, #9b4cff, #ff5d69);
+    border: 0;
+}
+
+.secondary {
+    background: #10131a;
+}
+
+.handle {
+    margin-top: 10px;
+    color: #8e96a5;
+    font-size: 13px;
+}
+
+/* HERO IMAGE */
+.hero-preview {
+    border: 1px solid #303846;
+    border-radius: 20px;
+    padding: 12px;
+    background: #0c1017;
+    box-shadow: 0 20px 80px rgba(35, 111, 255, 0.12);
+}
+
+.hero-preview img {
+    width: 100%;
+    display: block;
+    border-radius: 13px;
+}
+
+/* SECTIONS */
+section {
+    padding: 75px 0;
+}
+
+.head {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    color: #348cff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 42px;
+    line-height: 1.1;
+    margin: 7px 0;
+}
+
+.head p {
+    color: #929aa8;
+    max-width: 620px;
+    margin: auto;
+}
+
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: #0e1219;
+    border: 1px solid #242a35;
+    border-radius: 18px;
+    padding: 27px;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: #151b25;
+    border: 1px solid #303744;
+    color: #4eafff;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.card p {
+    color: #929aa8;
+    font-size: 14px;
+}
+
+/* REVIEWS */
+.reviews {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.review {
+    position: relative;
+}
+
+.stars {
+    color: #ffd42a;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.review p {
+    color: #c2c7d0;
+    font-size: 14px;
+}
+
+.person {
+    margin-top: 18px;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.person span {
+    display: block;
+    color: #707887;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* PROCESS */
+.process-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* CTA */
+.cta {
+    background: linear-gradient(
+        100deg,
+        #3430ff,
+        #8739e8,
+        #ff4d68
+    );
+    border-radius: 23px;
+    padding: 55px 30px;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 42px;
+}
+
+.cta p {
+    color: #e5e6ff;
+    max-width: 600px;
+    margin: 10px auto 20px;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid #20242d;
+    padding: 27px 0;
+    color: #747c8b;
+    font-size: 13px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid,
+    .process-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .reviews {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navlinks {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .grid,
+    .process-grid,
+    .reviews {
+        grid-template-columns: 1fr;
+    }
+
+    h2,
+    .cta h2 {
+        font-size: 32px;
+    }
+
+    .hero {
+        padding-top: 65px;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="container nav">
+
+        <div class="logo">
+            Stack <span>Format</span>
+        </div>
+
+        <div class="navlinks">
+            <a href="#services">Services</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="badge">
+                WE BUILD WEBSITES FOR LOCAL BUSINESSES
+            </div>
+
+            <h1>
+                Your Business Deserves a
+                <span class="blue">Website.</span>
+            </h1>
+
+            <p>
+                We create modern, mobile-friendly websites for
+                shops, clinics, restaurants, showrooms and local businesses.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="btn primary"
+                    href="https://www.instagram.com/stack.format/"
+                    target="_blank"
+                >
+                    📷 DM Us on Instagram →
+                </a>
+
+                <a
+                    class="btn secondary"
+                    href="mailto:aihub6450@gmail.com"
+                >
+                    ✉ Contact via Email
+                </a>
+
+            </div>
+
+            <div class="handle">
+                @stack.format · aihub6450@gmail.com
+            </div>
+
+        </div>
+
+
+        <!-- Website preview -->
+        <div class="hero-preview">
+
+            <img
+                src="website-preview.png"
+                alt="Stack Format website preview"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+    <div class="container">
+
+        <div class="head">
+
+            <div class="eyebrow">
+                WHY STACK FORMAT
+            </div>
+
+            <h2>
+                More than just a website.
+            </h2>
+
+            <p>
+                We build a professional online presence that makes
+                your business easier to discover and contact.
+            </p>
+
+        </div>
+
+
+        <div class="grid">
+
+            <div class="card">
+
+                <div class="icon">
+                    01
+                </div>
+
+                <h3>
+                    Modern Design
+                </h3>
+
+                <p>
+                    Clean, premium designs that make your
+                    business look professional.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    02
+                </div>
+
+                <h3>
+                    Mobile Friendly
+                </h3>
+
+                <p>
+                    Your website looks great on phones,
+                    tablets and desktops.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    03
+                </div>
+
+                <h3>
+                    Built To Grow
+                </h3>
+
+                <p>
+                    Clear calls-to-action help visitors call,
+                    message and contact you.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+<section id="reviews">
+
+    <div class="container">
+
+        <div class="head">
+
+            <div class="eyebrow">
+                CLIENT REVIEWS
+            </div>
+
+            <h2>
+                What Our Clients Say
+            </h2>
+
+        </div>
+
+
+        <div class="grid reviews">
+
+
+            <div class="card review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “Great work! The website looks very professional
+                    and exactly what we wanted. Communication was
+                    smooth and support was good.”
+                </p>
+
+                <div class="person">
+                    Rizwan Ahmed
+                    <span>
+                        Plaza Burqa House
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="card review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “Very happy with the website. It is simple,
+                    modern and easy to use. Customers can now
+                    contact us directly from the website.”
+                </p>
+
+                <div class="person">
+                    Sumanth G
+                    <span>
+                        Cycle Loka
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="card review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “The website is clean, professional and
+                    mobile friendly. It helped us present our
+                    clinic much better online.”
+                </p>
+
+                <div class="person">
+                    Dr. Priyanka
+                    <span>
+                        Sri Sai Dental Care
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="card review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    “They understood our requirements very well
+                    and delivered a beautiful website. Looks great
+                    and works perfectly on mobile.”
+                </p>
+
+                <div class="person">
+                    Manoj
+                    <span>
+                        Style Mantra Salon
+                    </span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROCESS -->
+<section id="process">
+
+    <div class="container">
+
+        <div class="head">
+
+            <div class="eyebrow">
+                OUR PROCESS
+            </div>
+
+            <h2>
+                Simple. Fast. Professional.
+            </h2>
+
+        </div>
+
+
+        <div class="grid process-grid">
+
+            <div class="card">
+
+                <div class="icon">
+                    01
+                </div>
+
+                <h3>
+                    Tell Us About Your Business
+                </h3>
+
+                <p>
+                    DM us your business details, services
+                    and what you want on the website.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    02
+                </div>
+
+                <h3>
+                    We Build It
+                </h3>
+
+                <p>
+                    We design and develop a website around
+                    your brand and customers.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">
+                    03
+                </div>
+
+                <h3>
+                    Go Online
+                </h3>
+
+                <p>
+                    After final approval, your business gets
+                    a professional online presence.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="container">
+
+        <div class="cta">
+
+            <div class="eyebrow">
+                READY TO START?
+            </div>
+
+            <h2>
+                Let's build your website.
+            </h2>
+
+            <p>
+                DM us on Instagram or send us an email.
+                Tell us about your business and we'll take it from there.
+            </p>
+
+            <div
+                class="buttons"
+                style="justify-content:center"
+            >
+
+                <a
+                    class="btn"
+                    style="background:#fff;color:#111;border:0"
+                    href="https://www.instagram.com/stack.format/"
+                    target="_blank"
+                >
+                    📷 DM @stack.format →
+                </a>
+
+                <a
+                    class="btn"
+                    style="background:transparent;border:1px solid #fff"
+                    href="mailto:aihub6450@gmail.com"
+                >
+                    ✉ aihub6450@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="container footer">
+
+        <div>
+            © 2026 Stack Format
+        </div>
+
+        <div>
+            Web Design · Development · Digital Presence
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
